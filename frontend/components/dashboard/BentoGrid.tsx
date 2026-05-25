@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { containerVariants } from "@/animations/variants";
-import { cn } from "@/lib/utils";
+import { containerVariants } from "@/frontend/animations/variants";
+import { cn } from "@/frontend/lib/utils";
 
 interface BentoGridProps {
   children: React.ReactNode;

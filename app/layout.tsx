@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 // @ts-ignore
 import "./globals.css";
-import { Sidebar } from "@/components/sidebar/Sidebar";
-import { MobileNav } from "@/components/ui/MobileNav";
-import { MotionProvider } from "@/components/providers/motion-provider";
+import { Sidebar } from "@/frontend/components/sidebar/Sidebar";
+import { MobileNav } from "@/frontend/components/ui/MobileNav";
+import { MotionProvider } from "@/frontend/components/providers/motion-provider";
 
 // Display font — sharp, technical feel
 const geistSans = Geist({
@@ -23,7 +23,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Luminary — Student Dashboard",
   description: "Your personal futuristic learning command center.",
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/favicon.svg" },
 };
 
 export const viewport: Viewport = {

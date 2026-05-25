@@ -1,16 +1,16 @@
 import { Suspense } from "react";
-import { getCourses } from "@/lib/supabase/queries";
-import { getStats } from "@/lib/activity";
-import { BentoGrid } from "@/components/dashboard/BentoGrid";
-import { DashboardHeader } from "@/components/dashboard/DashboardHeader";
-import { HeroCard } from "@/components/cards/HeroCard";
-import { CourseCard } from "@/components/cards/CourseCard";
-import { ActivityCard } from "@/components/cards/ActivityCard";
-import { StatsCard } from "@/components/cards/StatsCard";
-import { QuickActionsCard } from "@/components/cards/QuickActionsCard";
-import { ErrorCard } from "@/components/ui/ErrorCard";
-import { SkeletonCard } from "@/components/ui/SkeletonCard";
-import { MotionProvider } from "@/components/providers/motion-provider";
+import { getCourses } from "@/backend/supabase/queries";
+import { getStats } from "@/frontend/data/activity";
+import { BentoGrid } from "@/frontend/components/dashboard/BentoGrid";
+import { DashboardHeader } from "@/frontend/components/dashboard/DashboardHeader";
+import { HeroCard } from "@/frontend/components/cards/HeroCard";
+import { CourseCard } from "@/frontend/components/cards/CourseCard";
+import { ActivityCard } from "@/frontend/components/cards/ActivityCard";
+import { StatsCard } from "@/frontend/components/cards/StatsCard";
+import { QuickActionsCard } from "@/frontend/components/cards/QuickActionsCard";
+import { ErrorCard } from "@/frontend/components/ui/ErrorCard";
+import { SkeletonCard } from "@/frontend/components/ui/SkeletonCard";
+import { MotionProvider } from "@/frontend/components/providers/motion-provider";
 import { Trophy, TrendingUp } from "lucide-react";
 
 // ── Course grid section fetched server-side ──────────────────────────

@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Play, Search, BookMarked, GraduationCap } from "lucide-react";
-import { cardVariants, springSnappy } from "@/animations/variants";
-import { cn } from "@/lib/utils";
+import { cardVariants, springSnappy } from "@/frontend/animations/variants";
+import { cn } from "@/frontend/lib/utils";
 
 const actions = [
   { id: "resume", label: "Resume Learning", icon: Play, primary: true },

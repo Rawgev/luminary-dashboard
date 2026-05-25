@@ -10,8 +10,8 @@ import {
   Trophy,
   Settings,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { mobileNavVariants, springSnappy } from "@/animations/variants";
+import { cn } from "@/frontend/lib/utils";
+import { mobileNavVariants, springSnappy } from "@/frontend/animations/variants";
 
 const tabs = [
   { id: "dashboard", label: "Home", icon: LayoutDashboard, href: "/" },

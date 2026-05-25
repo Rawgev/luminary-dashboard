@@ -1,4 +1,4 @@
-import type { ActivityDay, StreakData, StatsData } from "@/types";
+import type { ActivityDay, StreakData, StatsData } from "@/shared/types";
 
 function deterministicLevel(index: number): ActivityDay["level"] {
   const pattern = [0, 2, 1, 3, 0, 4, 2, 1, 0, 3, 2, 4, 1, 0, 2];

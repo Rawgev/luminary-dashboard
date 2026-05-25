@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Bell, Search, Menu } from "lucide-react";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/frontend/lib/utils";
 
 export function DashboardHeader() {
   const [searchFocused, setSearchFocused] = useState(false);

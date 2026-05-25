@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { TrendingUp } from "lucide-react";
-import { cardVariants, springSnappy } from "@/animations/variants";
-import { getIcon } from "@/lib/icons";
-import { cn } from "@/lib/utils";
+import { cardVariants, springSnappy } from "@/frontend/animations/variants";
+import { getIcon } from "@/frontend/lib/icons";
+import { cn } from "@/frontend/lib/utils";
 
 interface StatsCardProps {
   title: string;

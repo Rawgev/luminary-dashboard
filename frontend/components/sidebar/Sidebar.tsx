@@ -15,8 +15,8 @@ import {
   Bell,
   User,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { sidebarVariants, tooltipVariants, springSnappy } from "@/animations/variants";
+import { cn } from "@/frontend/lib/utils";
+import { sidebarVariants, tooltipVariants, springSnappy } from "@/frontend/animations/variants";
 
 interface NavItem {
   id: string;

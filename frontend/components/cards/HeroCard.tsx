@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Flame, Zap, Clock, Award } from "lucide-react";
-import { cardVariants, cardHoverScale, springSnappy } from "@/animations/variants";
-import type { StatsData } from "@/types";
+import { cardVariants, cardHoverScale, springSnappy } from "@/frontend/animations/variants";
+import type { StatsData } from "@/shared/types";
 
 const STATS_CONFIG = [
   { key: "currentStreak" as const, label: "Day Streak", icon: Flame, color: "text-amber-400" },

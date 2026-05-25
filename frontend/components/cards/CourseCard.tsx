@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight } from "lucide-react";
-import { getIcon } from "@/lib/icons";
-import { ProgressBar } from "@/components/ui/ProgressBar";
-import { cardVariants, springSnappy } from "@/animations/variants";
-import { cn } from "@/lib/utils";
-import type { Course, ColorAccent } from "@/types";
+import { getIcon } from "@/frontend/lib/icons";
+import { ProgressBar } from "@/frontend/components/ui/ProgressBar";
+import { cardVariants, springSnappy } from "@/frontend/animations/variants";
+import { cn } from "@/frontend/lib/utils";
+import type { Course, ColorAccent } from "@/shared/types";
 
 interface CourseCardProps {
   course: Course;

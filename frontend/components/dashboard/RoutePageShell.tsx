@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { getIcon } from "@/lib/icons";
-import { cn } from "@/lib/utils";
+import { getIcon } from "@/frontend/lib/icons";
+import { cn } from "@/frontend/lib/utils";
 
 type Accent = "cyan" | "purple" | "blue" | "green" | "amber" | "pink";
 

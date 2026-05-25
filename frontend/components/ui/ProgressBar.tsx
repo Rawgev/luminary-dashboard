@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import type { ColorAccent } from "@/types";
+import type { ColorAccent } from "@/shared/types";
 
 interface ProgressBarProps {
   value: number;

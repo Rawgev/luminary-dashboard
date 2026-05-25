@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Flame, TrendingUp, CalendarDays } from "lucide-react";
-import { cardVariants, springSnappy } from "@/animations/variants";
-import { generateActivityData, getStreakData } from "@/lib/activity";
-import { cn } from "@/lib/utils";
-import type { ActivityDay } from "@/types";
+import { cardVariants, springSnappy } from "@/frontend/animations/variants";
+import { generateActivityData, getStreakData } from "@/frontend/data/activity";
+import { cn } from "@/frontend/lib/utils";
+import type { ActivityDay } from "@/shared/types";
 
 const LEVEL_COLORS = [
   "bg-bg-border",

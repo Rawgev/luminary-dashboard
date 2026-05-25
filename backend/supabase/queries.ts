@@ -1,5 +1,5 @@
-import { createClient } from "@/lib/supabase/server";
-import type { Course } from "@/types";
+import { createClient } from "@/backend/supabase/server";
+import type { Course } from "@/shared/types";
 
 export async function getCourses(): Promise<Course[]> {
   const supabase = await createClient();

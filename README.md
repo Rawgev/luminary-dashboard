@@ -1,233 +1,170 @@
-# Luminary — Futuristic Student Dashboard
+# Luminary - Futuristic Student Dashboard
 
-A production-quality, animated education dashboard built with **Next.js 15**, **TypeScript**, **Tailwind CSS**, **Framer Motion**, and **Supabase**.
+A production-quality animated education dashboard built with Next.js 15, TypeScript, Tailwind CSS, Framer Motion, Lucide React, and Supabase.
 
-![Dashboard Preview](https://placehold.co/1200x630/050508/00d4ff?text=Luminary+Dashboard)
+## Features
 
-## ✨ Features
+- Futuristic dark UI with glow effects, mesh gradients, and a Bento-style dashboard.
+- Next.js App Router routes for dashboard, courses, progress, achievements, notifications, and settings.
+- Server-side Supabase course fetching through `@supabase/ssr`.
+- Framer Motion animations isolated in client components and protected by a mount-safe motion provider.
+- Responsive navigation: expanded desktop sidebar, compact tablet rail, and mobile bottom navigation.
+- Dynamic Lucide icon mapping through plain string names to avoid server/client serialization issues.
+- Skeleton loading states that match the final dashboard layout.
+- Custom SVG favicon in `public/favicon.svg`.
 
-- **Bento Grid Layout** — responsive multi-column card system
-- **Dark Futuristic UI** — deep blacks, glowing gradients, mesh backgrounds
-- **Staggered Framer Motion animations** — spring physics, sequential reveals
-- **Server-side Supabase integration** — data fetched in async Server Components
-- **Collapsible sidebar** with `layoutId` highlight animation
-- **Dynamic Lucide icon mapping** from database `icon_name`
-- **Animated progress bars** — spring-driven, GPU-accelerated
-- **Activity contribution graph** — like GitHub's green squares
-- **Responsive** — Desktop, Tablet, Mobile with bottom navigation
-- **Skeleton loaders** matching final layout
-- **Error handling UI** with retry capability
-
----
-
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Choice |
-|---|---|
-| Framework | Next.js 15 (App Router) |
-| Language | TypeScript 5 |
-| Styling | Tailwind CSS 3 |
-| Animation | Framer Motion 11 |
-| Backend | Supabase (PostgreSQL) |
+| --- | --- |
+| Framework | Next.js 15 App Router |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Animation | Framer Motion |
+| Backend | Supabase |
 | Icons | Lucide React |
-| Fonts | Geist, Geist Mono |
+| Fonts | Geist and Geist Mono |
 
----
+## Quick Start
 
-## 🚀 Quick Start
-
-### 1. Clone & install
+### 1. Install dependencies
 
 ```bash
-git clone https://github.com/your-username/student-dashboard.git
-cd student-dashboard
 npm install
 ```
 
-### 2. Set up Supabase
+### 2. Configure Supabase
 
-1. Create a free project at [supabase.com](https://supabase.com)
-2. Go to **Settings → API** and copy:
-   - `Project URL`
-   - `anon/public key`
-3. Open the **SQL Editor** and run the contents of `supabase/schema.sql`
+Create a Supabase project, then run the SQL in:
 
-### 3. Configure environment
+```text
+backend/database/schema.sql
+```
+
+Create `.env.local` from `.env.example`:
 
 ```bash
 cp .env.example .env.local
 ```
 
-Edit `.env.local`:
+Add your keys:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 ```
 
-### 4. Run the dev server
+### 3. Run locally
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) 🎉
+Open `http://localhost:3000`.
 
----
+## Project Structure
 
-## 📁 Project Structure
-
-```
+```text
 student-dashboard/
-├── app/
-│   ├── layout.tsx          # Root layout, fonts, global providers
-│   ├── page.tsx            # Dashboard page (async Server Component)
-│   ├── loading.tsx         # Skeleton loading state
-│   └── globals.css         # Tailwind + custom keyframes
+├── app/                              # Next.js App Router entrypoints
+│   ├── achievements/page.tsx          # Achievements route
+│   ├── courses/page.tsx               # Courses route
+│   ├── notifications/page.tsx         # Notifications route
+│   ├── progress/page.tsx              # Progress route
+│   ├── settings/page.tsx              # Settings route
+│   ├── globals.css                    # Tailwind directives and keyframes
+│   ├── layout.tsx                     # Root layout, fonts, sidebar, mobile nav
+│   ├── loading.tsx                    # Global dashboard skeleton loader
+│   └── page.tsx                       # Main dashboard route
 │
-├── components/
-│   ├── dashboard/
-│   │   ├── BentoGrid.tsx   # Staggered grid container
-│   │   └── DashboardHeader.tsx
-│   ├── sidebar/
-│   │   └── Sidebar.tsx     # Collapsible sidebar + layoutId nav
-│   ├── cards/
-│   │   ├── HeroCard.tsx    # Welcome tile with glow orb
-│   │   ├── CourseCard.tsx  # Dynamic course tile
-│   │   ├── ActivityCard.tsx # Contribution graph
-│   │   ├── StatsCard.tsx   # Mini metric card
-│   │   └── QuickActionsCard.tsx
-│   └── ui/
-│       ├── ProgressBar.tsx # Animated spring progress
-│       ├── SkeletonCard.tsx # Pulse skeleton loaders
-│       ├── MobileNav.tsx   # Bottom navigation (mobile)
-│       └── ErrorCard.tsx   # Error boundary UI
+├── frontend/                          # Frontend-only UI, animation, and display data
+│   ├── animations/
+│   │   └── variants.ts                # Shared Framer Motion variants and springs
+│   ├── components/
+│   │   ├── cards/                     # Dashboard card components
+│   │   │   ├── ActivityCard.tsx
+│   │   │   ├── CourseCard.tsx
+│   │   │   ├── HeroCard.tsx
+│   │   │   ├── QuickActionsCard.tsx
+│   │   │   └── StatsCard.tsx
+│   │   ├── dashboard/                 # Page/grid/header shells
+│   │   │   ├── BentoGrid.tsx
+│   │   │   ├── DashboardHeader.tsx
+│   │   │   └── RoutePageShell.tsx
+│   │   ├── providers/
+│   │   │   └── motion-provider.tsx    # Mount gate for hydration-safe animations
+│   │   ├── sidebar/
+│   │   │   └── Sidebar.tsx            # Desktop/tablet navigation
+│   │   └── ui/                        # Reusable UI primitives
+│   │       ├── ErrorCard.tsx
+│   │       ├── MobileNav.tsx
+│   │       ├── ProgressBar.tsx
+│   │       └── SkeletonCard.tsx
+│   ├── data/
+│   │   ├── activity.ts                # Deterministic mock dashboard metrics
+│   │   └── route-pages.ts             # Serializable route page content
+│   └── lib/
+│       ├── icons.ts                   # iconName string to Lucide icon map
+│       └── utils.ts                   # cn() helper
 │
-├── lib/
-│   ├── supabase/
-│   │   ├── server.ts       # @supabase/ssr server client
-│   │   ├── client.ts       # Browser client
-│   │   └── queries.ts      # Typed data-fetching functions
-│   ├── icons.ts            # Lucide icon name → component map
-│   ├── activity.ts         # Mock activity data generator
-│   └── utils.ts            # cn() helper
+├── backend/                           # Backend clients, queries, and database assets
+│   ├── database/
+│   │   └── schema.sql                 # Courses table, RLS, and seed data
+│   └── supabase/
+│       ├── client.ts                  # Browser Supabase client
+│       ├── queries.ts                 # Server-side typed data queries
+│       └── server.ts                  # Server Supabase client via next/headers cookies
 │
-├── animations/
-│   └── variants.ts         # All Framer Motion variants + spring configs
+├── shared/                            # Cross-layer TypeScript contracts
+│   └── types/
+│       └── index.ts                   # Course, nav, activity, and stats interfaces
 │
-├── types/
-│   └── index.ts            # TypeScript interfaces
+├── public/
+│   └── favicon.svg                    # Neon book favicon
 │
-└── supabase/
-    └── schema.sql          # Table + RLS + seed data
+├── .env.example                       # Required environment variables
+├── .eslintrc.json                     # Next.js ESLint config
+├── next.config.ts                     # Next.js config
+├── package.json                       # Scripts and dependencies
+├── postcss.config.mjs                 # Tailwind/PostCSS setup
+├── tailwind.config.ts                 # Design tokens and content globs
+└── tsconfig.json                      # TypeScript and path aliases
 ```
 
----
+## Frontend vs Backend Map
 
-## 🗄 Database Schema
+- Frontend lives in `frontend/`: React components, Framer Motion variants, route display data, icon mapping, and UI helpers.
+- Backend lives in `backend/`: Supabase clients, server queries, and database schema.
+- Shared contracts live in `shared/`: TypeScript interfaces used by both frontend and backend code.
+- App Router files stay in `app/`: route composition, layouts, loading states, and server component entrypoints.
+
+## Database Schema
 
 ```sql
-table courses (
-  id          uuid        primary key default gen_random_uuid()
-  title       text        not null
-  progress    integer     not null  -- 0..100
-  icon_name   text        not null  -- mapped to Lucide icons
-  created_at  timestamptz not null default now()
-)
+create table public.courses (
+  id uuid primary key default gen_random_uuid(),
+  title text not null,
+  progress integer not null check (progress between 0 and 100),
+  icon_name text not null,
+  created_at timestamptz not null default now()
+);
 ```
 
-### Supported `icon_name` values
+Supported `icon_name` values include `brain`, `code`, `database`, `globe`, `zap`, `layers`, `book`, `chart`, `cpu`, `terminal`, `palette`, `shield`, `atom`, `flask`, `rocket`, `music`, `camera`, `pen`, `award`, `bell`, and `settings`.
 
-`brain`, `code`, `database`, `globe`, `zap`, `layers`, `book`, `chart`, `cpu`, `terminal`, `palette`, `shield`, `atom`, `flask`, `rocket`, `music`, `camera`, `pen`
-
----
-
-## 🎨 Design System
-
-### Color Tokens (Tailwind)
-
-| Token | Value | Use |
-|---|---|---|
-| `bg-base` | `#050508` | Page background |
-| `bg-surface` | `#0c0c14` | Sidebar, cards |
-| `bg-elevated` | `#111120` | Elevated cards |
-| `accent-cyan` | `#00d4ff` | Primary accent |
-| `accent-purple` | `#a855f7` | Secondary accent |
-| `accent-green` | `#10d4a0` | Progress / success |
-| `text-primary` | `#f0f0ff` | Main text |
-| `text-secondary` | `#8888aa` | Supporting text |
-| `text-muted` | `#44445a` | Labels, captions |
-
-### Animation Presets (Framer Motion)
-
-```ts
-// Spring physics
-springSnappy  → stiffness: 300, damping: 20
-springGentle  → stiffness: 200, damping: 25
-springBouncy  → stiffness: 400, damping: 15
-
-// Page load
-containerVariants  → staggerChildren: 0.08
-cardVariants       → fade + translateY(24px) + scale(0.97)
-```
-
----
-
-## 🌐 Deploy to Vercel
-
-### One-click
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2Fstudent-dashboard)
-
-### Manual
+## Development Commands
 
 ```bash
-npm install -g vercel
-vercel
-```
-
-Add environment variables in the Vercel dashboard:
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-
----
-
-## 🔧 Development Commands
-
-```bash
-npm run dev      # Start dev server on :3000
-npm run build    # Production build
+npm run dev      # Start local dev server
+npm run build    # Create production build
 npm run start    # Serve production build
-npm run lint     # ESLint check
+npm run lint     # Run Next.js ESLint checks
 ```
 
----
+## Notes for Future Changes
 
-## 🧩 Extending the Dashboard
-
-### Add a new course icon
-
-1. Open `lib/icons.ts`
-2. Import the Lucide icon
-3. Add it to the `iconMap` object
-
-### Add a new Bento card
-
-1. Create your component in `components/cards/`
-2. Use `motion.article` with `variants={cardVariants}`
-3. Import and place it inside `<BentoGrid>` in `app/page.tsx`
-
-### Add more course data
-
-Run in Supabase SQL Editor:
-
-```sql
-insert into public.courses (title, progress, icon_name)
-values ('Your Course Title', 60, 'rocket');
-```
-
----
-
-## 📄 License
-
-MIT — free for personal and commercial use.
+- Add frontend UI in `frontend/components/`.
+- Add backend queries in `backend/supabase/queries.ts`.
+- Add shared interfaces in `shared/types/index.ts`.
+- Add new Lucide icons by updating `frontend/lib/icons.ts`.
+- Keep server-to-client props serializable; pass `iconName` strings instead of icon components.
