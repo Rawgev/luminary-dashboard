@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bell, Search, Menu } from "lucide-react";
+import { Bell, Search } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/frontend/lib/utils";
 
@@ -15,14 +15,8 @@ export function DashboardHeader() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="flex items-center justify-between gap-4 mb-6 md:mb-8"
     >
-      {/* Left: Mobile menu + Title */}
+      {/* Left: Title */}
       <div className="flex items-center gap-3">
-        <button
-          aria-label="Open navigation"
-          className="md:hidden p-2 rounded-xl bg-bg-elevated border border-bg-border text-text-secondary hover:text-text-primary transition-colors"
-        >
-          <Menu size={16} />
-        </button>
         <div>
           <p className="text-xs text-text-muted font-mono uppercase tracking-widest hidden sm:block">
             Overview
