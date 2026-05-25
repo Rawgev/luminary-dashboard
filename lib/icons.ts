@@ -1,0 +1,53 @@
+import {
+  Brain,
+  Code2,
+  Database,
+  Globe,
+  Zap,
+  Layers,
+  BookOpen,
+  BarChart2,
+  Cpu,
+  Terminal,
+  Palette,
+  Shield,
+  Atom,
+  FlaskConical,
+  Rocket,
+  Music2,
+  Camera,
+  PenTool,
+  Award,
+  Bell,
+  Settings,
+  type LucideIcon,
+} from "lucide-react";
+
+const iconMap: Record<string, LucideIcon> = {
+  brain: Brain,
+  code: Code2,
+  code2: Code2,
+  database: Database,
+  globe: Globe,
+  zap: Zap,
+  layers: Layers,
+  book: BookOpen,
+  chart: BarChart2,
+  cpu: Cpu,
+  terminal: Terminal,
+  palette: Palette,
+  shield: Shield,
+  atom: Atom,
+  flask: FlaskConical,
+  rocket: Rocket,
+  music: Music2,
+  camera: Camera,
+  pen: PenTool,
+  award: Award,
+  bell: Bell,
+  settings: Settings,
+};
+
+export function getIcon(name: string): LucideIcon {
+  return iconMap[name.toLowerCase()] ?? BookOpen;
+}

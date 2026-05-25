@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: var(--font-body);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #050508;
+    color: #f0f0ff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e1e38;
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a2a50;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200vh);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@layer utilities {
+  .bg-mesh-1 {
+    background-image: radial-gradient(
+        at 40% 20%,
+        hsla(228, 100%, 74%, 0.15) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 80% 0%,
+        hsla(189, 100%, 56%, 0.1) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 0% 50%,
+        hsla(355, 100%, 93%, 0.05) 0px,
+        transparent 50%
+      );
+  }
+
+  .bg-mesh-2 {
+    background-image: radial-gradient(
+        at 100% 0%,
+        hsla(289, 100%, 74%, 0.12) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 0% 100%,
+        hsla(180, 100%, 56%, 0.1) 0px,
+        transparent 50%
+      );
+  }
+
+  .bg-mesh-3 {
+    background-image: radial-gradient(
+        at 50% 0%,
+        hsla(160, 100%, 56%, 0.12) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 100% 100%,
+        hsla(228, 100%, 74%, 0.08) 0px,
+        transparent 50%
+      );
+  }
+
+  .bg-mesh-4 {
+    background-image: radial-gradient(
+        at 0% 0%,
+        hsla(38, 100%, 74%, 0.12) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 100% 50%,
+        hsla(355, 100%, 74%, 0.08) 0px,
+        transparent 50%
+      );
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+    font-feature-settings: "cv11", "ss01";
+  }
+}
