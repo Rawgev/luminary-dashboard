@@ -21,9 +21,41 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Luminary — Student Dashboard",
-  description: "Your personal futuristic learning command center.",
-  icons: { icon: "/favicon.svg" },
+  title: {
+    default: "Luminary - Futuristic Student Dashboard",
+    template: "%s | Luminary",
+  },
+  description: "A production-quality interactive educational dashboard designed for students to track courses, achievements, and real-time learning progress.",
+  keywords: [
+    "Luminary",
+    "Student Dashboard",
+    "Education Portal",
+    "Learning Tracker",
+    "EdTech",
+    "Next.js 15",
+    "Framer Motion",
+    "Supabase",
+    "Futuristic UI",
+    "luminaryapp",
+  ],
+  authors: [{ name: "Luminary Team" }],
+  openGraph: {
+    title: "Luminary - Futuristic Student Dashboard",
+    description: "Track your educational journey, course achievements, and progress with Luminary's interactive Bento-style dashboard.",
+    url: "https://luminaryapp.vercel.app",
+    siteName: "Luminary Student Dashboard",
+    images: [
+      {
+        url: "/favicon.svg",
+        width: 1200,
+        height: 630,
+        alt: "Luminary Student Dashboard Preview"
+      },
+    ],
+    type: "website",
+  },
+  creator: "Luminary",
+  metadataBase: new URL("https://luminaryapp.vercel.app"),
 };
 
 export const viewport: Viewport = {
